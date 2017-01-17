@@ -1,17 +1,21 @@
 <div class="root-page {{fields.color_theme}}-theme">
   <h1>{{fields.header}}</h1>
-  <h2>Published {{fields.feature_date}} by {{fields.author}}</h2>
-  <p>{{fields.short_description}}</p>
+  <h2>Published <span style="color:red;">{{fields.feature_date}}</span> by {{fields.author}}</h2>
+  <!-- Use triple propellers to render content with html markup. -->
+  <p>{{{fields.short_description}}}</p>
   <section class="page-content">
     <ul class="proficiencies">
       {{#each fields.proficiencies}}
-        <li style="color:red;">{{this}}</li>
+        <li>{{this}}</li>
       {{/each}}
     </ul>
     <div class="main-content">
+      <!-- Use triple propellers to render content with html markup. -->
       {{{fields.body}}}
     </div>
   </section>
+
+  <!-- Example of using a handlebars #if conditional based on whether a the "Show Featured Project" checkbox field is checked. -->
   {{#if fields.show_featured_project}}
     <section class="featured_project">
       {{#each fields.featured_project}}
@@ -23,6 +27,7 @@
       {{/each}}
     </section>
   {{/if}}
+
   <section class="other_resources">
     <ul>
       {{#each fields.other_resources}}
