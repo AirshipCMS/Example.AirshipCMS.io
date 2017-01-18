@@ -1,9 +1,8 @@
 <div class="root-page {{fields.color_theme}}-theme">
   <h1>{{fields.header}}</h1>
-  <p>
-    <!-- Use triple propellers to render content with html markup. -->
-    {{{fields.short_description}}}
-  </p>
+  <h2>Published <span style="color:red;">{{fields.feature_date}}</span> by {{fields.author}}</h2>
+  <!-- Use triple propellers to render content with html markup. -->
+  <p>{{{fields.short_description}}}</p>
   <section class="page-content">
     <ul class="proficiencies">
       {{#each fields.proficiencies}}
@@ -17,10 +16,8 @@
   </section>
 
   <!-- Example of using a handlebars #if conditional based on whether a the "Show Featured Project" checkbox field is checked. -->
-  
   {{#if fields.show_featured_project}}
     <section class="featured_project">
-      <h2>Featured Project</h2>
       {{#each fields.featured_project}}
         <a class="featured_project" href="{{url}}" target="_blank">
           <img src="{{subtitle}}" alt="{{title}}">
@@ -32,7 +29,6 @@
   {{/if}}
 
   <section class="other_resources">
-    <h2>Other Resources</h2>
     <ul>
       {{#each fields.other_resources}}
         <li class="resource">
@@ -45,28 +41,18 @@
     </ul>
   </section>
   <section class="related_articles">
-  <h2>Related Articles</h2>
     <ul>
       {{#each related_items.related_articles}}
         <li class="article">
-          <a href="#">
+          <a href="{{slug}}" target="_blank">
             <h3>{{fields.header}}</h3>
-            <p>{{fields.short_description}} ({{slug}})</p>
+            <p>{{fields.short_description}}</p>
           </a>
         </li>
       {{/each}}
     </ul>
   </section>
 </div>
-
-<!--{{{help}}}-->
-
-<!-- 
-
-** NOTES **
-
-Render {{{help}}} to see what properties are accessible on any template.
-
-For documentation on how to render the example "articles" collection, refer to the airshipcms.io docs.
-
--->
+<div class="help-section">
+  {{{help}}}
+</div>
