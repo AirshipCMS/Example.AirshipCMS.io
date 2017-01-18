@@ -1,9 +1,26 @@
-<!-- these examples all do the same thing -->
-<ul>
-  {{#each items}}
-    <li><a href="{{slug}}">{{fields.header}}</a></li>
-  {{/each}}
-</ul>
+<h1>{{collection.title}}</h1>
+<section>
+  <!-- loop through items with a standard #each helper, which orders items by permalink -->
+  <ul>
+    {{#each items}}
+      <li>
+        <a href="{{slug}}">{{permalink}}</a>
+      </li>
+    {{/each}}
+  </ul>
+  <!-- or use the #sort_list helper, to sort by a top-level property -->
+  <!-- <ul>
+    {{#sort_list items sort="sorting_position" order="asc"}}
+      <li>
+        <a href="/{{slug}}">{{permalink}} (order: {{sorting_position}})</a>
+      </li>
+    {{/sort_list}}
+  </ul> -->
+
+  <!-- for even more control, use the api and render with scripts. -->
+
+</section>
+
 <div class="help-section">
   {{{help}}}
 </div>
